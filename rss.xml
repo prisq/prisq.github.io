@@ -1,0 +1,448 @@
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Junghoon Lee's RSS Feed]]></title><description><![CDATA[Junghoon Lee's personal website]]></description><link>https://prisq.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 30 Dec 2025 12:17:03 GMT</lastBuildDate><item><title><![CDATA[Getting Started]]></title><description><![CDATA[Add Post Set Front matter NOTE : Properties other than alt must be required. Edit About Page Easy. You can modify the blog/about.md file. If…]]></description><link>https://prisq.github.io/blog/getting-started/</link><guid isPermaLink="false">https://prisq.github.io/blog/getting-started/</guid><pubDate>Sun, 01 Mar 2020 03:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;Add Post&lt;/h2&gt;
+&lt;h3&gt;Set Front matter&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&quot;language-md&quot;&gt;---
+title: &quot;Getting Started&quot;  // Post title
+category: &quot;Instruction&quot;   // Post category
+date: &quot;2020-03-01 12:00:00 +09:00&quot;  // Current time
+desc: &quot;Let&apos;s start making blogs step by step!&quot;  // Post desc
+thumbnail: &quot;./images/getting-started/thumbnail.jpg&quot; // Post thumbnail
+alt: &quot;apple and shaking hands&quot;  // [optional] thumbnail image alt
+---
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;NOTE&lt;/em&gt; : Properties other than alt must be required.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Edit About Page&lt;/h2&gt;
+&lt;p&gt;Easy. You can modify the &lt;code&gt;blog/about.md&lt;/code&gt; file. If you need additional styling, give an id or class to a specific element in &lt;code&gt;about.md&lt;/code&gt; and try to control it in the &lt;code&gt;pages/about.js&lt;/code&gt; file.&lt;/p&gt;
+&lt;p&gt;An example is shown below.&lt;/p&gt;
+&lt;h3&gt;blog/about.md&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&quot;language-md&quot;&gt;&amp;#x3C;h2 id=&quot;title&quot;&gt;Hello&amp;#x3C;/h2&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3&gt;pages/about.js&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;const About = () =&gt; {
+  /* ... */
+}
+
+const Container = styled(Markdown).attrs({
+  as: &quot;main&quot;,
+})`
+  width: var(--post-width);
+  margin: 0 auto;
+  margin-top: 80px;
+  margin-bottom: 6rem;
+
+  @media (max-width: ${({ theme }) =&gt; theme.device.sm}) {
+    margin-top: var(--sizing-xl);
+    width: 87.5%;
+  }
+
+  h1 {
+    margin-bottom: 2rem;
+  }
+
+  h2 {
+    margin-top: var(--sizing-lg);
+
+    @media (max-width: ${({ theme }) =&gt; theme.device.sm}) {
+      font-size: 1.75rem;
+    }
+  }
+
+  h3 {
+    @media (max-width: ${({ theme }) =&gt; theme.device.sm}) {
+      font-size: 1.25rem;
+    }
+  }
+
+  /* You can Add Additional Styling here */
+
+  #title {
+    font-size: 60px;
+  }
+`
+
+export default About
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2&gt;Other Customization&lt;/h2&gt;
+&lt;p&gt;You can freely customize each componentfile using the styled-component. If you want to change the style globally, you can change the &lt;code&gt;styles/globalStyle&lt;/code&gt; file.&lt;/p&gt;
+&lt;p&gt;Thank you for using &lt;code&gt;gatsby-starter-apple&lt;/code&gt;. If you have any questions, please leave them on this &lt;strong&gt;&lt;a href=&quot;https://github.com/sungik-choi/gatsby-starter-apple/issues&quot;&gt;link&lt;/a&gt;.&lt;/strong&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Code Highlight]]></title><description><![CDATA[Using Plugin This starter kit uses the code highlight plugin gatsby-remark-vscode.
+Please refer to the link for more detailed instructions…]]></description><link>https://prisq.github.io/blog/code-block/</link><guid isPermaLink="false">https://prisq.github.io/blog/code-block/</guid><pubDate>Sat, 01 Feb 2020 03:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;Using Plugin&lt;/h2&gt;
+&lt;p&gt;This starter kit uses the code highlight plugin &lt;a href=&quot;https://github.com/andrewbranch/gatsby-remark-vscode&quot;&gt;gatsby-remark-vscode&lt;/a&gt;.
+Please refer to the link for more detailed instructions. It&apos;s a great plugin. 👍&lt;/p&gt;
+&lt;h2&gt;React JSX with line highlighting&lt;/h2&gt;
+&lt;pre&gt;&lt;code class=&quot;language-jsx&quot;&gt;var ProfileLink = React.createClass({
+  render: function () {
+    return (
+      &amp;#x3C;a href={&quot;https://www.facebook.com/&quot; + this.props.username}&gt;
+        {this.props.username}
+      &amp;#x3C;/a&gt;
+    )
+  },
+})
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2&gt;Javascript&lt;/h2&gt;
+&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;import {x, y} as p from &apos;point&apos;;
+const ANSWER = 42;
+
+class Car extends Vehicle {
+  constructor(speed, cost) {
+    super(speed);
+
+    var c = Symbol(&apos;cost&apos;);
+    this[c] = cost;
+
+    this.intro = `This is a car runs at
+      ${speed}.`;
+  }
+}
+
+for (let num of [1, 2, 3]) {
+  console.log(num + 0b111110111);
+}
+
+function $initHighlight(block, flags) {
+  try {
+    if (block.className.search(/\bno\-highlight\b/) != -1)
+      return processBlock(block.function, true, 0x0F) + &apos; class=&quot;&quot;&apos;;
+  } catch (e) {
+    /*handle exception*/
+        var e4x =
+        &amp;#x3C;div&gt;Example
+            &amp;#x3C;p&gt;1234&amp;#x3C;/p&gt;&amp;#x3C;/div&gt;;
+  }
+  for (var i = 0 / 2; i &amp;#x3C; classes.length; i++) {
+  // &quot;0 / 2&quot; should not be parsed as regexp
+    if (checkCondition(classes[i]) === undefined)
+      return /\d+[\s/]/g;
+  }
+  console.log(Array.every(classes, Boolean));
+}
+
+export  $initHighlight;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2&gt;HTML&lt;/h2&gt;
+&lt;pre&gt;&lt;code class=&quot;language-html&quot;&gt;&amp;#x3C;!doctype html&gt;
+&amp;#x3C;html lang=&quot;en&quot;&gt;
+  &amp;#x3C;head&gt;
+    &amp;#x3C;meta charset=&quot;utf-8&quot; /&gt;
+    &amp;#x3C;title&gt;Hello world&amp;#x3C;/title&gt;
+    &amp;#x3C;link
+      href=&quot;http://fonts.googleapis.com/css?family=Roboto:400,400italic,700,700italic&quot;
+      rel=&quot;stylesheet&quot;
+      type=&quot;text/css&quot;
+    /&gt;
+    &amp;#x3C;link rel=&quot;stylesheet&quot; href=&quot;index.css&quot; /&gt;
+  &amp;#x3C;/head&gt;
+  &amp;#x3C;body&gt;
+    &amp;#x3C;div id=&quot;app&quot;&gt;&amp;#x3C;/div&gt;
+    &amp;#x3C;script src=&quot;//cdnjs.cloudflare.com/ajax/libs/less.js/2.5.1/less.min.js&quot;&gt;&amp;#x3C;/script&gt;
+    &amp;#x3C;script src=&quot;vendor/prism.js&quot;&gt;&amp;#x3C;/script&gt;
+    &amp;#x3C;script src=&quot;examples.bundle.js&quot;&gt;&amp;#x3C;/script&gt;
+  &amp;#x3C;/body&gt;
+&amp;#x3C;/html&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2&gt;CSS&lt;/h2&gt;
+&lt;pre&gt;&lt;code class=&quot;language-css&quot;&gt;pre[class*=&quot;language-&quot;],
+code {
+  color: #5c6e74;
+  font-size: 13px;
+  text-shadow: none;
+  font-family: Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace;
+  direction: ltr;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  line-height: 1.5;
+  tab-size: 4;
+  hyphens: none;
+}
+pre[class*=&quot;language-&quot;]::selection,
+code::selection {
+  text-shadow: none;
+  background: #b3d4fc;
+}
+@media print {
+  pre[class*=&quot;language-&quot;],
+  code {
+    text-shadow: none;
+  }
+}
+pre[class*=&quot;language-&quot;] {
+  padding: 1em;
+  margin: 0.5em 0;
+  overflow: auto;
+  background: #f8f5ec;
+}
+:not(pre) &gt; code {
+  padding: 0.1em 0.3em;
+  border-radius: 0.3em;
+  color: #db4c69;
+  background: #f9f2f4;
+}
+&lt;/code&gt;&lt;/pre&gt;</content:encoded></item><item><title><![CDATA[Category Test]]></title><description><![CDATA[Category Test 🍎]]></description><link>https://prisq.github.io/blog/category-test/</link><guid isPermaLink="false">https://prisq.github.io/blog/category-test/</guid><pubDate>Wed, 01 Jan 2020 03:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;Category Test&lt;/h2&gt;
+&lt;p&gt;🍎&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Markdown Test]]></title><description><![CDATA[Overview Philosophy Markdown is intended to be as easy-to-read and easy-to-write as is feasible. Readability, however, is emphasized above…]]></description><link>https://prisq.github.io/blog/markdown-test/</link><guid isPermaLink="false">https://prisq.github.io/blog/markdown-test/</guid><pubDate>Sun, 01 Dec 2019 03:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;Overview&lt;/h2&gt;
+&lt;h3&gt;Philosophy&lt;/h3&gt;
+&lt;p&gt;Markdown is intended to be as easy-to-read and easy-to-write as is feasible.&lt;/p&gt;
+&lt;p&gt;Readability, however, is emphasized above all else. A Markdown-formatted
+document should be publishable as-is, as plain text, without looking
+like it&apos;s been marked up with tags or formatting instructions. While
+Markdown&apos;s syntax has been influenced by several existing text-to-HTML
+filters -- including &lt;a href=&quot;http://docutils.sourceforge.net/mirror/setext.html&quot;&gt;Setext&lt;/a&gt;, &lt;a href=&quot;http://www.aaronsw.com/2002/atx/&quot;&gt;atx&lt;/a&gt;, &lt;a href=&quot;http://textism.com/tools/textile/&quot;&gt;Textile&lt;/a&gt;, &lt;a href=&quot;http://docutils.sourceforge.net/rst.html&quot;&gt;reStructuredText&lt;/a&gt;,
+&lt;a href=&quot;http://www.triptico.com/software/grutatxt.html&quot;&gt;Grutatext&lt;/a&gt;, and &lt;a href=&quot;http://ettext.taint.org/doc/&quot;&gt;EtText&lt;/a&gt; -- the single biggest source of
+inspiration for Markdown&apos;s syntax is the format of plain text email.&lt;/p&gt;
+&lt;h2&gt;Block Elements&lt;/h2&gt;
+&lt;h3&gt;Paragraphs and Line Breaks&lt;/h3&gt;
+&lt;p&gt;A paragraph is simply one or more consecutive lines of text, separated
+by one or more blank lines. (A blank line is any line that looks like a
+blank line -- a line containing nothing but spaces or tabs is considered
+blank.) Normal paragraphs should not be indented with spaces or tabs.&lt;/p&gt;
+&lt;p&gt;The implication of the &quot;one or more consecutive lines of text&quot; rule is
+that Markdown supports &quot;hard-wrapped&quot; text paragraphs. This differs
+significantly from most other text-to-HTML formatters (including Movable
+Type&apos;s &quot;Convert Line Breaks&quot; option) which translate every line break
+character in a paragraph into a &lt;code&gt;&amp;#x3C;br /&gt;&lt;/code&gt; tag.&lt;/p&gt;
+&lt;p&gt;When you &lt;em&gt;do&lt;/em&gt; want to insert a &lt;code&gt;&amp;#x3C;br /&gt;&lt;/code&gt; break tag using Markdown, you
+end a line with two or more spaces, then type return.&lt;/p&gt;
+&lt;h3&gt;Headers&lt;/h3&gt;
+&lt;p&gt;Markdown supports two styles of headers, [Setext] [1] and [atx] [2].&lt;/p&gt;
+&lt;p&gt;Optionally, you may &quot;close&quot; atx-style headers. This is purely
+cosmetic -- you can use this if you think it looks better. The
+closing hashes don&apos;t even need to match the number of hashes
+used to open the header. (The number of opening hashes
+determines the header level.)&lt;/p&gt;
+&lt;h3&gt;Blockquotes&lt;/h3&gt;
+&lt;p&gt;Markdown uses email-style &lt;code&gt;&gt;&lt;/code&gt; characters for blockquoting. If you&apos;re
+familiar with quoting passages of text in an email message, then you
+know how to create a blockquote in Markdown. It looks best if you hard
+wrap the text and put a &lt;code&gt;&gt;&lt;/code&gt; before every line:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;This is a blockquote with two paragraphs. Lorem ipsum dolor sit amet,
+consectetuer adipiscing elit. Aliquam hendrerit mi posuere lectus.
+Vestibulum enim wisi, viverra nec, fringilla in, laoreet vitae, risus.&lt;/p&gt;
+&lt;p&gt;Donec sit amet nisl. Aliquam semper ipsum sit amet velit. Suspendisse
+id sem consectetuer libero luctus adipiscing.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Markdown allows you to be lazy and only put the &lt;code&gt;&gt;&lt;/code&gt; before the first
+line of a hard-wrapped paragraph:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;This is a blockquote with two paragraphs. Lorem ipsum dolor sit amet,
+consectetuer adipiscing elit. Aliquam hendrerit mi posuere lectus.
+Vestibulum enim wisi, viverra nec, fringilla in, laoreet vitae, risus.
+Donec sit amet nisl. Aliquam semper ipsum sit amet velit. Suspendisse
+id sem consectetuer libero luctus adipiscing.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Blockquotes can be nested (i.e. a blockquote-in-a-blockquote) by
+adding additional levels of &lt;code&gt;&gt;&lt;/code&gt;:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;This is the first level of quoting.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;This is nested blockquote.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Back to the first level.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Blockquotes can contain other Markdown elements, including headers, lists,
+and code blocks:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;h2&gt;This is a header&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;This is the first list item.&lt;/li&gt;
+&lt;li&gt;This is the second list item.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Here&apos;s some example code:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;return shell_exec(&quot;echo $input | $markdown_script&quot;);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Any decent text editor should make email-style quoting easy. For
+example, with BBEdit, you can make a selection and choose Increase
+Quote Level from the Text menu.&lt;/p&gt;
+&lt;h3&gt;Lists&lt;/h3&gt;
+&lt;p&gt;Markdown supports ordered (numbered) and unordered (bulleted) lists.&lt;/p&gt;
+&lt;p&gt;Unordered lists use asterisks, pluses, and hyphens -- interchangably
+-- as list markers:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Red&lt;/li&gt;
+&lt;li&gt;Green&lt;/li&gt;
+&lt;li&gt;Blue&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;is equivalent to:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Red&lt;/li&gt;
+&lt;li&gt;Green&lt;/li&gt;
+&lt;li&gt;Blue&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;and:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Red&lt;/li&gt;
+&lt;li&gt;Green&lt;/li&gt;
+&lt;li&gt;Blue&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Ordered lists use numbers followed by periods:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Bird&lt;/li&gt;
+&lt;li&gt;McHale&lt;/li&gt;
+&lt;li&gt;Parish&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;It&apos;s important to note that the actual numbers you use to mark the
+list have no effect on the HTML output Markdown produces. The HTML
+Markdown produces from the above list is:&lt;/p&gt;
+&lt;p&gt;If you instead wrote the list in Markdown like this:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Bird&lt;/li&gt;
+&lt;li&gt;McHale&lt;/li&gt;
+&lt;li&gt;Parish&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;or even:&lt;/p&gt;
+&lt;ol start=&quot;3&quot;&gt;
+&lt;li&gt;Bird&lt;/li&gt;
+&lt;li&gt;McHale&lt;/li&gt;
+&lt;li&gt;Parish&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;you&apos;d get the exact same HTML output. The point is, if you want to,
+you can use ordinal numbers in your ordered Markdown lists, so that
+the numbers in your source match the numbers in your published HTML.
+But if you want to be lazy, you don&apos;t have to.&lt;/p&gt;
+&lt;p&gt;To make lists look nice, you can wrap items with hanging indents:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+Aliquam hendrerit mi posuere lectus. Vestibulum enim wisi,
+viverra nec, fringilla in, laoreet vitae, risus.&lt;/li&gt;
+&lt;li&gt;Donec sit amet nisl. Aliquam semper ipsum sit amet velit.
+Suspendisse id sem consectetuer libero luctus adipiscing.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;But if you want to be lazy, you don&apos;t have to:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+Aliquam hendrerit mi posuere lectus. Vestibulum enim wisi,
+viverra nec, fringilla in, laoreet vitae, risus.&lt;/li&gt;
+&lt;li&gt;Donec sit amet nisl. Aliquam semper ipsum sit amet velit.
+Suspendisse id sem consectetuer libero luctus adipiscing.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;List items may consist of multiple paragraphs. Each subsequent
+paragraph in a list item must be indented by either 4 spaces
+or one tab:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;This is a list item with two paragraphs. Lorem ipsum dolor
+sit amet, consectetuer adipiscing elit. Aliquam hendrerit
+mi posuere lectus.&lt;/p&gt;
+&lt;p&gt;Vestibulum enim wisi, viverra nec, fringilla in, laoreet
+vitae, risus. Donec sit amet nisl. Aliquam semper ipsum
+sit amet velit.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Suspendisse id sem consectetuer libero luctus adipiscing.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;It looks nice if you indent every line of the subsequent
+paragraphs, but here again, Markdown will allow you to be
+lazy:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;This is a list item with two paragraphs.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;This is the second paragraph in the list item. You&apos;re
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;only required to indent the first line. Lorem ipsum dolor
+sit amet, consectetuer adipiscing elit.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Another item in the same list.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;To put a blockquote within a list item, the blockquote&apos;s &lt;code&gt;&gt;&lt;/code&gt;
+delimiters need to be indented:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;A list item with a blockquote:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;This is a blockquote
+inside a list item.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;To put a code block within a list item, the code block needs
+to be indented &lt;em&gt;twice&lt;/em&gt; -- 8 spaces or two tabs:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;A list item with a code block:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;  &amp;#x3C;code goes here&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Code Blocks&lt;/h3&gt;
+&lt;p&gt;Pre-formatted code blocks are used for writing about programming or
+markup source code. Rather than forming normal paragraphs, the lines
+of a code block are interpreted literally. Markdown wraps a code block
+in both &lt;code&gt;&amp;#x3C;pre&gt;&lt;/code&gt; and &lt;code&gt;&amp;#x3C;code&gt;&lt;/code&gt; tags.&lt;/p&gt;
+&lt;p&gt;To produce a code block in Markdown, simply indent every line of the
+block by at least 4 spaces or 1 tab.&lt;/p&gt;
+&lt;p&gt;This is a normal paragraph:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;This is a code block.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Here is an example of AppleScript:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;tell application &quot;Foo&quot;
+    beep
+end tell
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;A code block continues until it reaches a line that is not indented
+(or the end of the article).&lt;/p&gt;
+&lt;p&gt;Within a code block, ampersands (&lt;code&gt;&amp;#x26;&lt;/code&gt;) and angle brackets (&lt;code&gt;&amp;#x3C;&lt;/code&gt; and &lt;code&gt;&gt;&lt;/code&gt;)
+are automatically converted into HTML entities. This makes it very
+easy to include example HTML source code using Markdown -- just paste
+it and indent it, and Markdown will handle the hassle of encoding the
+ampersands and angle brackets. For example, this:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;#x3C;div class=&quot;footer&quot;&gt;
+    &amp;#x26;copy; 2004 Foo Corporation
+&amp;#x3C;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Regular Markdown syntax is not processed within code blocks. E.g.,
+asterisks are just literal asterisks within a code block. This means
+it&apos;s also easy to use Markdown to write about Markdown&apos;s own syntax.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;tell application &quot;Foo&quot;
+    beep
+end tell
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2&gt;Span Elements&lt;/h2&gt;
+&lt;h3&gt;Links&lt;/h3&gt;
+&lt;p&gt;Markdown supports two style of links: &lt;em&gt;inline&lt;/em&gt; and &lt;em&gt;reference&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;In both styles, the link text is delimited by [square brackets].&lt;/p&gt;
+&lt;p&gt;To create an inline link, use a set of regular parentheses immediately
+after the link text&apos;s closing square bracket. Inside the parentheses,
+put the URL where you want the link to point, along with an &lt;em&gt;optional&lt;/em&gt;
+title for the link, surrounded in quotes. For example:&lt;/p&gt;
+&lt;p&gt;This is &lt;a href=&quot;http://example.com/&quot;&gt;an example&lt;/a&gt; inline link.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://example.net/&quot;&gt;This link&lt;/a&gt; has no title attribute.&lt;/p&gt;
+&lt;h3&gt;Emphasis&lt;/h3&gt;
+&lt;p&gt;Markdown treats asterisks (&lt;code&gt;*&lt;/code&gt;) and underscores (&lt;code&gt;_&lt;/code&gt;) as indicators of
+emphasis. Text wrapped with one &lt;code&gt;*&lt;/code&gt; or &lt;code&gt;_&lt;/code&gt; will be wrapped with an
+HTML &lt;code&gt;&amp;#x3C;em&gt;&lt;/code&gt; tag; double &lt;code&gt;*&lt;/code&gt;&apos;s or &lt;code&gt;_&lt;/code&gt;&apos;s will be wrapped with an HTML
+&lt;code&gt;&amp;#x3C;strong&gt;&lt;/code&gt; tag. E.g., this input:&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;single asterisks&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;single underscores&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;double asterisks&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;double underscores&lt;/strong&gt;&lt;/p&gt;
+&lt;h3&gt;Code&lt;/h3&gt;
+&lt;p&gt;To indicate a span of code, wrap it with backtick quotes (&lt;code&gt;`&lt;/code&gt;).
+Unlike a pre-formatted code block, a code span indicates code within a
+normal paragraph. For example:&lt;/p&gt;
+&lt;p&gt;Use the &lt;code&gt;printf()&lt;/code&gt; function.&lt;/p&gt;
+&lt;h3&gt;Table&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;name&lt;/th&gt;
+&lt;th&gt;desc&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;:set number&lt;/td&gt;
+&lt;td&gt;show line number&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;:set nonumber&lt;/td&gt;
+&lt;td&gt;do not show line number&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;number can be short as &quot;nu&quot;&lt;/p&gt;</content:encoded></item></channel></rss>
